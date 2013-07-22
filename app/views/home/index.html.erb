@@ -1,1 +1,3 @@
-@ home controller.
+<% @posts.each do |post| %>
+  <%= render 'home/post', post: post %>
+<% end %>
