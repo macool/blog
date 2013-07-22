@@ -66,3 +66,6 @@ end
 
 # heroku's required gem:
 gem 'rails_12factor'
+
+# authentication:
+gem "sorcery"
