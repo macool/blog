@@ -50,10 +50,7 @@ gem "exception_notification"
 gem "rspec-rails"
 gem "rb-fsevent"
 group :test, :development do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
-  gem "rspec-rails"
+  
 end
 
 group :development do
