@@ -77,5 +77,5 @@ Blog::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.middleware.use ExceptionNotifier, :email_prefix => "[error en aplicacion]", :sender_address => %{"bot notificador" <bot@shiriculapo.com>}, :exception_recipients => %w{admin@macool.me}
+  config.middleware.use ExceptionNotification::Rack, :email => { :email_prefix => "[error en blog]", :sender_address => %{"bot notificador" <bot@shiriculapo.com>}, :exception_recipients => %w{admin@macool.me} }
 end
