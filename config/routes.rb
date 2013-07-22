@@ -53,5 +53,5 @@ Blog::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  match '*a', :to => 'application#routing_error'
+  
 end
