@@ -236,8 +236,8 @@ a {
 
 a:hover,
 a:focus {
-  color: #005580;
-  text-decoration: underline;
+  color: #3A525C;
+  text-decoration: none;
 }
 
 .img-rounded {
