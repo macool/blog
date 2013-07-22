@@ -66,3 +66,6 @@ end
 
 group :test do
 end
+
+# heroku's required gem:
+gem 'rails_12factor'
