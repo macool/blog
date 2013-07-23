@@ -1,0 +1,7 @@
+<%= pluralize comments.count, t("comments", default: "comments") %>
+
+<div class="post_comments">
+  <% comments.each do |comment| %>
+    <%= comment.inspect %>
+  <% end %>
+</div>

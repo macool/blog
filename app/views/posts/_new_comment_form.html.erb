@@ -1,0 +1,21 @@
+<h4>
+  <%= t("add_comment", default: "Write comment") %>
+</h4>
+
+<%= form_for @comment do |f| %>
+
+  <%= f.hidden_field :post_id %>
+  
+  <%= f.fields_for :person do |p| %>
+    <%= render 'posts/person_form', f: p %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content, t("comment", default: "Comment") %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit t("add", default: "Add"), :disable_with => t("adding", default: "Adding...") %>
+  </div>
+
+<% end %>

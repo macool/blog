@@ -6,12 +6,13 @@ Blog::Application.routes.draw do
   resources :sessions
   resources :users
   resources :posts
+  resources :comments
 
   namespace :admin do
     resources :posts
   end
 
-  root to: "home#index"
+  root to: "posts#index"
 
   get '*a', :to => 'application#routing_error'
 end
