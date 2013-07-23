@@ -1,4 +1,6 @@
 <%= render "posts/post", post: @post %>
-<%= render "posts/comments", comments: @post.comments %>
 
-<%= render "posts/new_comment_form" %>
+<% if @post.can_comment %>
+  <%= render "posts/comments", comments: @post.comments %>
+  <%= render "posts/new_comment_form" %>
+<% end %>

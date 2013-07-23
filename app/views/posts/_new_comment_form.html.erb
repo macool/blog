@@ -2,7 +2,7 @@
   <%= t("add_comment", default: "Write comment") %>
 </h4>
 
-<%= form_for @comment do |f| %>
+<%= form_for @comment, remote: true do |f| %>
 
   <%= f.hidden_field :post_id %>
   
@@ -15,7 +15,7 @@
     <%= f.text_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit t("add", default: "Add"), :disable_with => t("adding", default: "Adding...") %>
+    <%= f.submit t("to_comment", default: "Comment"), :disable_with => t("commenting", default: "Adding...") %>
   </div>
 
 <% end %>
