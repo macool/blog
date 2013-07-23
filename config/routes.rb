@@ -4,6 +4,7 @@ Blog::Application.routes.draw do
   get :logout, to: "sessions#destroy", as: :logout
 
   resources :sessions
+  resources :users
 
   namespace :admin do
     resources :posts

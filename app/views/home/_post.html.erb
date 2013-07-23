@@ -1,3 +1,15 @@
 <article>
-  <%= t "by" %> <%= post.user.name %> <time pubdate datetime="<%= post.created_at %>"><%= post.created_at %></time>
+  <div class="author">
+    <%= t ".by", default: "by" %> <%= link_to post.user.name, post.user, rel: "author" %>
+    <time pubdate datetime="<%= post.created_at %>"><%= post.created_at %></time>
+  </div>
+
+  <div class="post_title">
+    <%= post.title %>
+  </div>
+
+  <div class="post_content">
+    <%= post.content %>
+  </div>
+
 </article>
