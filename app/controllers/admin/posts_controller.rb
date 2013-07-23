@@ -2,7 +2,7 @@ class Admin::PostsController < AdminController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order("id DESC").includes(:user)
+    @posts = Post.order("id DESC").includes(:author)
   end
 
   def show
@@ -17,7 +17,7 @@ class Admin::PostsController < AdminController
 
   def create
     @post = Post.new(post_params)
-    @post.user = current_user
+    @post.author = current_user
 
     respond_to do |format|
       if @post.save
@@ -53,7 +53,7 @@ class Admin::PostsController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by_slug!(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
