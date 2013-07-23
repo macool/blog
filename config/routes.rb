@@ -5,6 +5,7 @@ Blog::Application.routes.draw do
 
   resources :sessions
   resources :users
+  resources :posts
 
   namespace :admin do
     resources :posts

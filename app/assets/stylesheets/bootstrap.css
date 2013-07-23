@@ -230,7 +230,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #111;
   text-decoration: none;
 }
 
@@ -741,7 +741,7 @@ h6 {
   font-family: inherit;
   font-weight: normal;
   line-height: 20px;
-  color: inherit;
+  color: #555;
   text-rendering: optimizelegibility;
 }
 

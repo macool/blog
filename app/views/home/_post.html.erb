@@ -1,15 +1,27 @@
-<article>
+<article class="post">
   <div class="author">
-    <%= t ".by", default: "by" %> <%= link_to post.user.name, post.user, rel: "author" %>
-    <time pubdate datetime="<%= post.created_at %>"><%= post.created_at %></time>
+    <%= t "post.author.by", default: "by" %>
+    <%= link_to post.author.name, post.author, rel: "author" %>
+    <%= t "post.author.on", default: "on" %>
+    <time pubdate datetime="<%= post.created_at %>">
+      <%= l post.created_at, format: :short %>
+    </time>
   </div>
 
-  <div class="post_title">
-    <%= post.title %>
+  <div class="title">
+    <h3>
+      <%= link_to post.title, post %>
+    </h3>
   </div>
 
-  <div class="post_content">
+  <div class="content">
     <%= post.content %>
   </div>
+
+  <% if post.can_comment %>
+    <div class="comments_count">
+      <%= link_to_unless_current post.comments.count.to_s + " " + t("post.comments", default: "Comments"), post %>
+    </div>
+  <% end %>
 
 </article>
