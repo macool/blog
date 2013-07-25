@@ -1,0 +1,15 @@
+<div class="comment">
+  <div class="person">
+    <% unless comment.person.website.blank? %>
+      <%= link_to comment.person.name, comment.person.website %>:
+    <% else %>
+      <%= comment.person.name %>:
+    <% end %>
+  </div>
+  <div class="content">
+    <%= comment.content %>
+  </div>
+  <div class="date">
+    <%= l comment.created_at, format: :short %>
+  </div>
+</div>

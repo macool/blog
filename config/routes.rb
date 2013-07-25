@@ -5,8 +5,9 @@ Blog::Application.routes.draw do
 
   resources :sessions
   resources :users
-  resources :posts
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
 
   namespace :admin do
     resources :posts
