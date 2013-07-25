@@ -1,5 +1,8 @@
 class Comment < ActiveRecord::Base
 
+# scopes:
+  scope :approved, -> { where(visible: true) }
+  
 # relations:
   belongs_to :post
 

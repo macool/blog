@@ -1,4 +1,9 @@
-<div class="comment">
+<div class="comment <%= comment.visible ? "" : "comment_not_approved" %>">
+  <% unless comment.visible %>
+    <span class="label">
+      <%= t("comments.awaiting_approval", default: "This comment is waiting for approval") %>
+    </span>
+  <% end %>
   <div class="person">
     <% unless comment.website.blank? %>
       <%= link_to comment.name, comment.website %>:
