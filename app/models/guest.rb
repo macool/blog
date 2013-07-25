@@ -11,7 +11,7 @@ class Guest < ActiveRecord::Base
 # class methods:
   def self.update_with_email( params )
     attributes = ActionController::Parameters.new(params).permit(:name, :email, :website)
-    guest = Guest.find_or_initialize_by(email: attributes[:email])
+    guest = Guest.where(email: attributes[:email]).first_or_initialize
     guest.update_attributes(attributes)
     guest
   end
