@@ -15,7 +15,7 @@
   </div>
 
   <div class="content">
-    <%= post.content %>
+    <%= raw post.content %>
   </div>
 
   <% if post.can_comment and not params[:action] == "show" %>
