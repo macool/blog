@@ -2,6 +2,7 @@ Blog::Application.routes.draw do
 
   get :login, to: "sessions#index", as: :login
   get :logout, to: "sessions#destroy", as: :logout
+  get :admin, to: "admin#index"
 
   resources :sessions
   resources :users

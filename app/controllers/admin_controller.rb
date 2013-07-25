@@ -2,6 +2,11 @@ class AdminController < ApplicationController
   
   before_filter :confirm_user_is_admin
   before_filter :require_login
+  
+  layout "layouts/admin"
+  
+  def index
+  end
 
 protected
 
