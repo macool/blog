@@ -3,7 +3,7 @@ class Admin::CommentsController < AdminController
   before_action :find_comment, only: [:approve, :decline]
   
   def index
-    @comments = Comment.order("id DESC").includes(:post)
+    @comments = Comment.order("id DESC").includes(:post).page(params[:page]).per(10)
   end
   
   def approve
