@@ -4,5 +4,7 @@
   <div class="post_comments">
     <%= render "posts/comments", comments: @post.comments %>
   </div>
-  <%= render "posts/new_comment_form" %>
+  <div class="post_new_comment_form">
+    <%= render "posts/new_comment_form" %>
+  </div>
 <% end %>
