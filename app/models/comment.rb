@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
 
 # scopes:
-  scope :approved, -> { where(visible: true) }
+  scope :approved, -> { where(visible: true).order("id ASC") }
   
 # relations:
   belongs_to :post
