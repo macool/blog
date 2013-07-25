@@ -1,6 +1,7 @@
-<%= paginate @comments, remote: true %>
 <% @comments.each do |comment| %>
   <div id="admin_comment_<%= comment.id %>" class="comment">
     <%= render 'admin/comments/comment', comment: comment %>
   </div>
 <% end %>
+
+<%= paginate @comments, remote: true %>
