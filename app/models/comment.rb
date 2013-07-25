@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
 
 # validations:
   validates :content, presence: true
-  validates :guest_id, presence: true
   validates :post_id, presence: true
   validates :email, presence: true
   validates :name, presence: true

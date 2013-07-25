@@ -10,6 +10,7 @@ class AddGuestFieldsToComments < ActiveRecord::Migration
   def down
     remove_index :comments, :email
     change_table :comments do |t|
+      t.integer :guest_id
       t.remove :email, :name, :website
     end
   end

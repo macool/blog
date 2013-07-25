@@ -1,9 +1,9 @@
 <div class="comment">
   <div class="person">
-    <% unless comment.person.website.blank? %>
-      <%= link_to comment.person.name, comment.person.website %>:
+    <% unless comment.website.blank? %>
+      <%= link_to comment.name, comment.website %>:
     <% else %>
-      <%= comment.person.name %>:
+      <%= comment.name %>:
     <% end %>
   </div>
   <div class="content">

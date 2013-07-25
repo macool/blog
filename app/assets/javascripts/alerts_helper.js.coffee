@@ -33,4 +33,4 @@ window.Helpers.AlertsHelper =
         $alert.fadeOut ->
           $alert.remove()
       , obj.auto_close
-    null
+    $alert

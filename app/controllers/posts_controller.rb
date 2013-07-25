@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.published.includes(:comments => :person).find_by!(slug: params[:id])
+    @post = Post.published.includes(:comments).find_by!(slug: params[:id])
     @comment = Comment.new post_id: @post.id
   end
   

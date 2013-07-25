@@ -1,19 +1,15 @@
 class CommentsController < ApplicationController
   
   before_action :find_post
+  
+  respond_to :js
 
   def create
-    person = Guest.update_with_email(params[:comment][:person])
     @comment = Comment.new comment_params
-    @comment.person = person
-    respond_to do |format|
-      format.js {
-        if @comment.save
-          render 'created'
-        else
-          render 'not_created'
-        end
-      }
+    if @comment.save
+      render 'created'
+    else
+      render 'not_created'
     end
   end
 
@@ -25,7 +21,7 @@ private
   end
 
   def comment_params
-    params[:comment].permit :post_id, :content
+    params[:comment].permit :post_id, :content, :name, :email, :website
   end
   
 end

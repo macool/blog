@@ -6,9 +6,20 @@
 
   <%= f.hidden_field :post_id %>
   
-  <%= f.fields_for :person do |p| %>
-    <%= render 'posts/person_form', f: p %>
-  <% end %>
+  <div class="field">
+    <%= f.label :name, t("name", default: "Name") %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, t("email", default: "Email") %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :website, t("website", default: "Website") %>
+    <%= f.text_field :website %>
+  </div>
 
   <div class="field">
     <%= f.label :content, t("comment", default: "Comment") %>
