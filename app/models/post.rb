@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
 
+# scopes:
+  scope :published, -> { where(published: true) }
+
 # relations:
   belongs_to :author, class_name: User, foreign_key: :user_id
   has_many :comments
