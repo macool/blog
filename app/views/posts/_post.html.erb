@@ -18,7 +18,7 @@
     <%= post.content %>
   </div>
 
-  <% if post.can_comment and not params["action"] == "show" %>
+  <% if post.can_comment and not params[:action] == "show" %>
     <div class="comments_count">
       <%= link_to_unless_current post.comments.count.to_s + " " + t("post.comments", default: "Comments"), post %>
     </div>
