@@ -2,11 +2,12 @@
   <div class="navbar-inner">
     <%= link_to "Admin", admin_path, :class => "brand" %>
     <ul class="nav">
-      <li <%= navbar_active?("posts") %>>
+      <li <%= admin_navbar_active("posts") %>>
         <%= link_to "Posts", admin_posts_path %>
       </li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
+      <li <%= admin_navbar_active("comments") %> >
+        <%= link_to "Comments", admin_comments_path %>
+      </li>
     </ul>
   </div>
 </div>

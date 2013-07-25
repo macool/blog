@@ -1,0 +1,5 @@
+(function(){
+  var node = $("<span />", { html: "<%= j render 'admin/comments/comment', comment: @comment %>" });
+  Helpers.TriggerHelpers.trigger(node);
+  $("#admin_comment_<%= @comment.id %>").html(node.html());
+}());

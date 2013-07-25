@@ -1,5 +1,7 @@
 <%= pluralize comments.count, t("comment", default: "comment") %>
 
 <% comments.each do |comment| %>
-  <%= render 'posts/comment', comment: comment %>
+  <div class="comment">
+    <%= render 'posts/comment', comment: comment %>
+  </div>
 <% end %>
