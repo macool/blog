@@ -1,4 +1,4 @@
-<div class="<%= comment.visible ? "" : "comment_not_approved" %>">
+<div id="comment_<%= comment.id %>" class="<%= comment.visible ? "" : "comment_not_approved" %>">
   <% unless comment.visible %>
     <div>
       <span class="label">

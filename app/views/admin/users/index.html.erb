@@ -1,0 +1,5 @@
+<%= pluralize User.count, "user" %>:
+
+<% @users.each do |user| %>
+  <%= render 'admin/users/user', user: user %>
+<% end %>

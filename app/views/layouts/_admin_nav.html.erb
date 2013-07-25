@@ -5,8 +5,11 @@
       <li <%= admin_navbar_active("posts") %>>
         <%= link_to "Posts", admin_posts_path %>
       </li>
-      <li <%= admin_navbar_active("comments") %> >
+      <li <%= admin_navbar_active("comments") %>>
         <%= link_to "Comments", admin_comments_path %>
+      </li>
+      <li <%= admin_navbar_active("users") %>>
+        <%= link_to "Users", admin_users_path %>
       </li>
     </ul>
   </div>

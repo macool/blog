@@ -1,4 +1,4 @@
-<%= comment.id %> on <%= link_to comment.post.title, comment.post %>:
+<%= link_to comment.id, post_path(comment.post, anchor: "comment_#{comment.id}") %> on <%= link_to comment.post.title, comment.post %>:
 
 <% if comment.visible %>
   <div><span class="label label-success">Approved</span></div>
