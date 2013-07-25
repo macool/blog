@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  include PeopleGravatar
 
 # scopes:
   scope :approved, -> { where(visible: true).order("id ASC") }
@@ -13,11 +14,6 @@ class Comment < ActiveRecord::Base
   validates :name, presence: true
 
 # methods:
-  def person_image
-    "http://www.gravatar.com/avatar/#{gravatar_hash}"
-  end
-  def gravatar_hash
-    @gravatar_hash ||= Digest::MD5.hexdigest(email)
-  end
+  alias_method :person_image, :image_url
 
 end
