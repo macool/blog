@@ -1,4 +1,4 @@
-<h2>Posts</h2>
+<%= pluralize Post.count, "post" %>:
 
 <table>
   <thead>
@@ -19,7 +19,7 @@
         <td><%= post.slug %></td>
         <td><%= post.published %></td>
         <td><%= post.title %></td>
-        <td><%= post.content %></td>
+        <td><%= truncate post.content %></td>
         <td>
           <%= link_to 'Show', admin_post_path(post) %>
           <%= link_to 'Edit', edit_admin_post_path(post) %>
@@ -30,6 +30,6 @@
   </tbody>
 </table>
 
-<br>
+<%= paginate @posts %>
 
-<%= link_to 'New Post', new_admin_post_path %>
+<%= link_to 'New Post', new_admin_post_path, :class => "button_new" %>

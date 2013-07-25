@@ -5,7 +5,7 @@ window.Helpers.ButtonsHelper =
     $el.find(".button_new:not(.looks_like_button)").each ->
       $(this).addClass("looks_like_button btn btn-info btn-mini").html "<i class='icon-plus icon-white'></i> " + $(this).html()
 
-    $(".mostrar_show:not(.looks_like_button)").each ->
+    $el.find(".mostrar_show:not(.looks_like_button)").each ->
       $(this).addClass("looks_like_button btn btn-mini").html "<i class='icon-eye-open'></i> " + $(this).html()
 
     $el.find(".delete_destroy:not(.looks_like_button)").each ->

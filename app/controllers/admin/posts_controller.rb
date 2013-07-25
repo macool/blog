@@ -2,7 +2,7 @@ class Admin::PostsController < AdminController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order("id DESC").includes(:author)
+    @posts = Post.order("id DESC").includes(:author).page(params[:page]).per(10)
   end
 
   def show
