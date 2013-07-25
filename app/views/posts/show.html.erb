@@ -2,7 +2,7 @@
 
 <% if @post.can_comment %>
   <div class="post_comments">
-    <%= render "posts/comments", comments: @post.comments %>
+    <%= render "posts/comments", comments: @comments %>
   </div>
   <div class="post_new_comment_form">
     <%= render "posts/new_comment_form" %>

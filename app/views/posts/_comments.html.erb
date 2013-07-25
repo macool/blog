@@ -1,4 +1,4 @@
-<%= pluralize comments.count, t("comments", default: "comment") %>
+<%= pluralize comments.count, t("comment", default: "comment") %>
 
 <% comments.each do |comment| %>
   <%= render 'posts/comment', comment: comment %>
