@@ -1,4 +1,9 @@
 on <%= link_to comment.post.title, comment.post %>:
+
+<% if comment.visible %>
+  <div><span class="label label-success">Approved</span></div>
+<% end %>
+
 <%= render 'posts/comment', comment: comment %>
 <% if comment.visible %>
   <%= link_to "Hide comment", decline_admin_comment_path(comment), :class => "btn btn-mini", remote: true %>
