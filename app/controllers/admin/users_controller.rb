@@ -37,7 +37,9 @@ class Admin::UsersController < AdminController
 private
   
   def user_params
-    params.require(:user).permit :username, :email, :name, :bio, :password, :password_confirmation, :is_admin
+    allowed_attributes = [:username, :email, :name, :bio, :is_admin]
+    allowed_attributes += [:password, :password_confirmation] unless params[:user][:password].blank?
+    params.require(:user).permit allowed_attributes
   end
 
   def find_user
