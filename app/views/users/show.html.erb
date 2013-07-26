@@ -1,13 +1,1 @@
-<div class="user">
-  <div class="left">
-    <%= image_tag @user.image_url, :class => "small_profile_image" %>
-  </div>
-  <div class="right">
-    <div class="name">
-      <%= @user.name %>
-    </div>
-    <div class="bio">
-      <%= @user.bio %>
-    </div>
-  </div>
-</div>
+<%= render 'users/user', user: @user %>

@@ -1,0 +1,44 @@
+<%= form_for [:admin, @user] do |f| %>
+
+  <%= form_errors_for @user %>
+
+  <div class="field">
+    <%= f.label :username, t("username", default: "Username") %>
+    <%= f.text_field :username, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, t("email", default: "Email") %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, t("name", default: "Name") %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio, t("bio", default: "Bio") %>
+    <%= f.text_field :bio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, t("password", default: "Password") %>
+    <%= f.password_field :password, placeholder: "Leave blank if not changing it" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, t("password_confirmation", default: "Password Confirmation") %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_admin, t("is_admin", default: "Admin") %>
+    <%= f.check_box :is_admin %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :data => {:disable_with => "submitting.."} %>
+  </div>
+
+<% end %>

@@ -1,15 +1,6 @@
 <%= form_for [:admin, @post], :html => {:class => "no_horizontal"} do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h3>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
+  <%= form_errors_for @post %>
 
   <div class="field">
     <%= f.label :title %>

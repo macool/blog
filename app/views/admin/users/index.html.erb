@@ -1,5 +1,10 @@
 <%= pluralize User.count, "user" %>:
 
 <% @users.each do |user| %>
-  <%= render 'admin/users/user', user: user %>
+  <div>
+    <%= render 'users/user', user: user %>
+    <%= link_to "Edit", edit_admin_user_path(user), :class => "editar_edit" %>
+  </div>
 <% end %>
+
+<%= link_to "New user", new_admin_user_path, :class => "button_new" %>
