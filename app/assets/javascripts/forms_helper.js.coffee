@@ -1,5 +1,11 @@
 window.Helpers ||= {}
 
+formatted_forms = false
+
+add_form_horizontal = ->
+  min_width = 510
+  document.width > min_width
+
 window.Helpers.FormsHelper = 
   $form: null
   setFieldsWithErrors: ->
@@ -15,8 +21,9 @@ window.Helpers.FormsHelper =
     @$form.find("label").addClass("control-label")
     null
   setFormClasses: ->
-    @$form.addClass("form-horizontal")
-      .find(".field").addClass("control-group")
+    if add_form_horizontal()
+      @$form.addClass("form-horizontal")
+    @$form.find(".field").addClass("control-group")
     null
   wrapInputs: ->
     for node in @$form.find("input, textarea, select")
@@ -24,20 +31,6 @@ window.Helpers.FormsHelper =
       if not $this.hasClass("no_controls") and not $this.parent().hasClass("controls")
         $this.wrap("<div class='controls' />")
     null
-  # setClickOnLabelListener: ->
-  #   # enables click on label
-  #   $(document).on "click", "label", ->
-  #     attr = this.getAttribute("for")
-  #     $input = $("input[name='#{attr}'], textarea[name='#{attr}'], select[name='#{attr}']").first()
-  #     if $input.attr("type") is "checkbox"
-  #       if $input.is(":checked")
-  #         $input[0].checked = false
-  #       else
-  #         $input[0].checked = true
-  #     else if $input.length > 0
-  #       $input.focus()
-  #     null
-  #   null
   init: ($el) ->
     for form in $el.find("form:not(.no_horizontal)")
       @initialize(form)
@@ -60,3 +53,9 @@ window.Helpers.FormsHelper =
 #   # dateField.datepicker()
 #   window.Helpers.FormsHelper.init()
 
+$(window).on "resize", ->
+  if add_form_horizontal()
+    $("form:not(.no_horizontal)").addClass "form-horizontal"
+  else
+    $("form.form-horizontal").removeClass "form-horizontal"
+  null
