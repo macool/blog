@@ -22,6 +22,7 @@ window.Helpers.FormsHelper =
     null
   setFormClasses: ->
     if add_form_horizontal()
+      formatted_forms = true
       @$form.addClass("form-horizontal")
     @$form.find(".field").addClass("control-group")
     null
@@ -55,7 +56,11 @@ window.Helpers.FormsHelper =
 
 $(window).on "resize", ->
   if add_form_horizontal()
-    $("form:not(.no_horizontal)").addClass "form-horizontal"
+    unless formatted_forms
+      formatted_forms = true
+      $("form:not(.no_horizontal)").addClass "form-horizontal"
   else
-    $("form.form-horizontal").removeClass "form-horizontal"
+    if formatted_forms
+      formatted_forms = false
+      $("form.form-horizontal").removeClass "form-horizontal"
   null
