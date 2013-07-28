@@ -23,6 +23,8 @@
       <%= link_to BLOG_CONFIGS["blog_header"], root_path %>
     </h1>
   </header>
+  
+  <%= render 'layouts/current_user_menu' %>
 
   <div id="flashes">
     <% flash.each do |key, msg| %>
