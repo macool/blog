@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
     slug.parameterize
   end
   def set_slug_if_not_yet
-    self.slug = self.title.parameterize if read_attribute(:slug).blank?
+    self.slug = self.title.parameterize if read_attribute(:slug).blank? and not read_attribute(:title).blank?
   end
   def content
     @parsed_content ||= Maruku.new(read_attribute(:content)).to_html
