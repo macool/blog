@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :slug, uniqueness: true, presence: true
   validates :user_id, presence: true
+  validates :content_type, presence: true, :inclusion => {:in => ["markdown", "html"]}
 
 # callbacks:
   before_validation :set_slug_if_not_yet
