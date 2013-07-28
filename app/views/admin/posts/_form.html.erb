@@ -18,6 +18,10 @@
     </div>
   </div>
   <div class="field">
+    <%= f.label :content_type %>
+    <%= f.select :content_type, ["markdown", "html"] %>
+  </div>
+  <div class="field">
     <%= f.check_box :published %><%= f.label :published %>
   </div>
   <div class="actions">

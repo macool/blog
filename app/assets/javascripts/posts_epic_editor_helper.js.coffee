@@ -7,6 +7,7 @@ class window.Helpers.PostsEpicEditor
       container: @selector
       textarea: @textarea
       basePath: "/epiceditor"
+      clientSideStorage: false
       theme:
         base: '/themes/base/epiceditor.css',
         preview: '/themes/preview/bartik.css',
