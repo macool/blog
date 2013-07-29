@@ -3,6 +3,7 @@ Blog::Application.routes.draw do
   get :login, to: "sessions#index", as: :login
   get :logout, to: "sessions#destroy", as: :logout
   get :admin, to: "admin#index"
+  get :not_found, to: "errors#not_found"
 
   resources :sessions
   resources :users
@@ -23,5 +24,5 @@ Blog::Application.routes.draw do
 
   root to: "posts#index"
 
-  get '*a', :to => 'application#routing_error'
+  get '*a', :to => 'errors#routing_error'
 end

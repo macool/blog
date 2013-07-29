@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
     # Mongoid Not found error:
     # rescue_from Mongoid::Errors::DocumentNotFound, :with => :render_not_found
   end
-
-  def routing_error
-    render_not_found(nil)
-  end
   
   protected
 
