@@ -18,10 +18,10 @@ class window.Helpers.PostsAceEditorHelper
       @$post_content.val @editor.getValue()
       true
     @$syntax_selector.on "change", (e) =>
-      console.log e.target.value
       @editor.getSession().setMode "ace/mode/#{e.target.value}"
   
   initializeEditor: ->
     @editor.setTheme "ace/theme/github"
     @editor.setValue @$post_content.val()
+    @editor.getSession().setTabSize 2
     @$syntax_selector.trigger "change"
