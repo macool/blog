@@ -1,4 +1,8 @@
 <div class="error">
   <h3>500.</h3>
-  Ups!
+  <%= t("oops", default: "Oops!") %>
 </div>
+
+<%= javascript_tag do %>
+  new Helpers.RedirectHelper({remainingSeconds: 10});
+<% end %>
