@@ -12,7 +12,7 @@
   </div>
   <div class="field">
     <%= f.label :content %>
-    <div id="epiceditor"></div>
+    <pre class="ace_editor" id="editor"></pre>
     <div class="hidden">
       <%= f.text_area :content %>
     </div>
@@ -32,5 +32,5 @@
 <%= link_to 'Back', admin_posts_path %>
 
 <%= javascript_tag do %>
-  new Helpers.PostsEpicEditor("epiceditor", "post_content");
+  new Helpers.PostsAceEditorHelper;
 <% end %>

@@ -24,5 +24,5 @@ Blog::Application.routes.draw do
 
   root to: "posts#index"
 
-  get '*a', :to => 'errors#routing_error'
+  get '*a', :to => 'errors#not_found'
 end
