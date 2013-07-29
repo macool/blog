@@ -24,4 +24,5 @@ class window.Helpers.PostsAceEditorHelper
     @editor.setTheme "ace/theme/github"
     @editor.setValue @$post_content.val()
     @editor.getSession().setTabSize 2
+    @editor.getSession().setUseWrapMode true
     @$syntax_selector.trigger "change"
