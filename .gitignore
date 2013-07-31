@@ -18,4 +18,4 @@ config/database.yml
 
 db/schema.rb
 
-public/media/sql-1/enlinea_pcworld_2013-05-30.sql
+public/media/
