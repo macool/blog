@@ -75,3 +75,6 @@ gem 'copycopter_client', '~> 2.0.1'
 
 # markdown:
 gem "maruku"
+
+# uploads:
+gem 'carrierwave'

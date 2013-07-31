@@ -1,0 +1,5 @@
+<%= pluralize Media.count, "Media" %>:
+
+<%= paginate @media %>
+
+<%= link_to 'Add media', new_admin_media_path, :class => "button_new" %>
