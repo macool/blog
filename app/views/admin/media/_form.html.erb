@@ -1,0 +1,29 @@
+<%= form_for [:admin, @media] do |f| %>
+
+  <%= form_errors_for @media %>
+  
+  <div class="field">
+    <%= f.label :name, t("name", default: "Name") %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <% if f.object.file? %>
+    <div class="controls"><%= link_to truncate(f.object.file_url), f.object.file_url %></div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :file, t("file", default: "New file") %>
+    <%= f.file_field :file %>
+    <%= f.hidden_field :file_cache %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :data => {:disable_with => "Sending.."} %>
+  </div>
+  
+<% end %>

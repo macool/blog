@@ -1,0 +1,16 @@
+<% @media.each do |media| %>
+  <div class="has_little_padding">
+    <div>
+      <%= media.name %>
+      <%= link_to truncate(media.file_url), media.file_url %>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_admin_media_path(media), :class => "editar_edit" %>
+      <%= link_to "Delete", admin_media_path(media), :class => "delete_destroy", method: :delete %>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @media, remote: true %>
+
+<%= link_to 'Add media', new_admin_media_path, :class => "button_new" %>

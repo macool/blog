@@ -11,7 +11,7 @@ class Media < ActiveRecord::Base
   
 # methods:
   def set_name_if_blank
-    name = file.to_s.parameterize if name.blank?
+    self.name = file.to_s.parameterize if name.blank?
   end
   
 end
