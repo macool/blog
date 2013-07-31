@@ -24,6 +24,12 @@
   <div class="field">
     <%= f.check_box :published %><%= f.label :published %>
   </div>
+  <% unless f.object.new_record? %>
+    <div class="field">
+      <%= f.label :user_id, t("author", default: "Author") %>
+      <%= f.select :user_id, @users.collect { |user| [user.username, user.id]} %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

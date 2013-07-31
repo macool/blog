@@ -13,6 +13,7 @@ class Admin::PostsController < AdminController
   end
 
   def edit
+    @users = User.select(:username, :id)
   end
 
   def create
@@ -46,6 +47,6 @@ class Admin::PostsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:slug, :published, :title, :content, :content_type)
+      params.require(:post).permit(:slug, :published, :title, :content, :content_type, :user_id)
     end
 end
