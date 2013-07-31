@@ -10,7 +10,7 @@ class Media < ActiveRecord::Base
   
 # methods:
   def set_name_if_blank
-    self.name = file.to_s.parameterize if name.blank?
+    write_attribute(:name, self.file.filename.to_s.parameterize) if name.blank?
   end
   
 end
