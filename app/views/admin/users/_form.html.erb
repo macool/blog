@@ -36,6 +36,10 @@
     <%= f.label :is_admin, t("is_admin", default: "Admin") %>
     <%= f.check_box :is_admin %>
   </div>
+  
+  <% unless f.object.new_record? %>
+    <%= link_to t("destroy_user", default: "Delete user"), admin_user_path, method: :delete, :class => "delete_destroy", data: {confirm: t("delete_user_confirmation_with_posts", default: "Are you sure? All of this user posts will be assigned to another user")}, disabled: f.object == current_user %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit :data => {:disable_with => "submitting.."} %>

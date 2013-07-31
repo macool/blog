@@ -1,6 +1,6 @@
 class Admin::UsersController < AdminController
 
-  before_action :find_user, only: [:edit, :update]
+  before_action :find_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -32,6 +32,15 @@ class Admin::UsersController < AdminController
       flash["alert-error"] = I18n.t("user_not_updated", default: "User not updated")
       render :edit
     end
+  end
+  
+  def destroy
+    if @user.destroy
+      flash["alert-success"] = I18n.t("user_destroyed", default: "User deleted")
+    else
+      flash["alert-error"] = @user.errors.messages[:base].join(", ")
+    end
+    redirect_to action: :index
   end
 
 private
