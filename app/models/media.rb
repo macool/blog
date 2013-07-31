@@ -4,7 +4,6 @@ class Media < ActiveRecord::Base
   
 # validations:
   validates :name, presence: true
-  validates :file, presence: true
 
 # callbacks:
   before_validation :set_name_if_blank

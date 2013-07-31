@@ -45,7 +45,11 @@ private
   end
 
   def media_params
-    params.require(:media).permit :name, :file, :description
+    allowed_params = [:name, :description, :file_cache]
+    unless params[:media][:file].blank?
+      allowed_params << :file
+    end
+    params.require(:media).permit allowed_params
   end
   
 end
