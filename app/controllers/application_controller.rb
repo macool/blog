@@ -23,5 +23,4 @@ class ApplicationController < ActionController::Base
     render :template => "/errors/500.html.erb", :layout => "application.html.erb", :status => 500
   end
 
-
 end
