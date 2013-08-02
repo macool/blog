@@ -30,6 +30,10 @@
       <%= f.select :user_id, @users.collect { |user| [user.username, user.id]} %>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :tag_names, t("tags", default: "Tags") %>
+    <%= f.text_field :tag_names, placeholder: "(comma separated)" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

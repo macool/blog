@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Author</th>
-      <th>Slug</th>
+      <th>Tags</th>
       <th>Published</th>
       <th>Title</th>
       <th>Content</th>
@@ -16,7 +16,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.author.username %></td>
-        <td><%= post.slug %></td>
+        <td><%= post.tag_names %></td>
         <td><%= post.published %></td>
         <td><%= post.title %></td>
         <td><%= truncate strip_tags post.content %></td>

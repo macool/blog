@@ -34,5 +34,16 @@ class Post < ActiveRecord::Base
   def raw_content
     read_attribute :content
   end
+  def tag_names
+    tags.collect(&:name).join(", ")
+  end
+  def tag_names=(new_tags_names)
+    new_tags = []
+    new_tags_names.split(",").each do |new_tag_name|
+      new_tag_name.strip!
+      new_tags << Tag.where(name: new_tag_name).first_or_create
+    end
+    self.tags = new_tags
+  end
 
 end

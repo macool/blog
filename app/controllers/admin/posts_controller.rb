@@ -2,7 +2,7 @@ class Admin::PostsController < AdminController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order("id DESC").includes(:author).page(params[:page]).per(10)
+    @posts = Post.order("id DESC").includes(:author, :tags).page(params[:page]).per(10)
   end
 
   def show
@@ -47,6 +47,6 @@ class Admin::PostsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:slug, :published, :title, :content, :content_type, :user_id)
+      params.require(:post).permit(:slug, :published, :title, :content, :content_type, :user_id, :tag_names)
     end
 end
