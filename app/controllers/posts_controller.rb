@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published.order("id DESC").includes(:author)
+    @posts = Post.cached_published
   end
 
   def show

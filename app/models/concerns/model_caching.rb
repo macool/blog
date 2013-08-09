@@ -6,12 +6,16 @@ module ModelCaching
   end
 
   def flush_cache
+    Rails.logger.debug "[cache]: flushing cache from #{self.class.name} #{self.id}"
     Rails.cache.delete([self.class.name, id])
   end
 
   module ClassMethods
     def cached_find(id)
-      Rails.cache.fetch([name, id]) { find(id) }
+      Rails.cache.fetch([name, id]) do
+        Rails.logger.debug "[cache]: caching #{name} #{id}"
+        find(id)
+      end
     end
   end
 end
