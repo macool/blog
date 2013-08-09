@@ -1,7 +1,9 @@
-<%= pluralize @post.approved_comments_count, t("comment", default: "comment") %>
+<% cache [@post.comments, current_user] do %>
+  <%= pluralize @post.approved_comments_count, t("comment", default: "comment") %>
 
-<% comments.each do |comment| %>
-  <div class="comment">
-    <%= render 'posts/comment', comment: comment %>
-  </div>
+  <% comments.each do |comment| %>
+    <div class="comment">
+      <%= render 'posts/comment', comment: comment %>
+    </div>
+  <% end %>
 <% end %>

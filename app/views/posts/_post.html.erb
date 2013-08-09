@@ -1,27 +1,29 @@
-<article class="post">
-  <div class="author">
-    <%= t "post.author.by", default: "by" %>
-    <%= link_to post.cached_author.name, post.cached_author, rel: "author" %>
-    <%= t "post.author.on", default: "on" %>
-    <time pubdate datetime="<%= post.created_at %>">
-      <%= l post.created_at, format: :short %>
-    </time>
-  </div>
-
-  <div class="title">
-    <h2>
-      <%= link_to post.title, post %>
-    </h2>
-  </div>
-
-  <div class="content">
-    <%= raw post.content %>
-  </div>
-
-  <% if post.can_comment and not params[:action] == "show" %>
-    <div class="comments_count">
-      <%= link_to_unless_current post.approved_comments_count.to_s + " " + t("post.comments", default: "Comments"), post %>
+<% cache post do %>
+  <article class="post">
+    <div class="author">
+      <%= t "post.author.by", default: "by" %>
+      <%= link_to post.cached_author.name, post.cached_author, rel: "author" %>
+      <%= t "post.author.on", default: "on" %>
+      <time pubdate datetime="<%= post.created_at %>">
+        <%= l post.created_at, format: :short %>
+      </time>
     </div>
-  <% end %>
 
-</article>
+    <div class="title">
+      <h2>
+        <%= link_to post.title, post %>
+      </h2>
+    </div>
+
+    <div class="content">
+      <%= raw post.content %>
+    </div>
+
+    <% if post.can_comment and not params[:action] == "show" %>
+      <div class="comments_count">
+        <%= link_to_unless_current post.approved_comments_count.to_s + " " + t("post.comments", default: "Comments"), post %>
+      </div>
+    <% end %>
+
+  </article>
+<% end %>

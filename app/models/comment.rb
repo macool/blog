@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
   scope :approved, -> { where(visible: true).order("id ASC") }
   
 # relations:
-  belongs_to :post
+  belongs_to :post, touch: true
 
 # validations:
   validates :content, presence: true
