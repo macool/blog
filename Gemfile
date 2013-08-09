@@ -78,3 +78,6 @@ gem "maruku"
 
 # uploads:
 gem 'carrierwave'
+
+# cache:
+gem 'dalli'
