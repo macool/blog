@@ -59,6 +59,10 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "meta_request"
+
+  # cache:
+  gem 'dalli'
+
 end
 
 group :test do
@@ -78,6 +82,3 @@ gem "maruku"
 
 # uploads:
 gem 'carrierwave'
-
-# cache:
-gem 'dalli'
