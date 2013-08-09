@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
 
+# modules included:
+  include ModelCaching
+
 # scopes:
   scope :published, -> { where(published: true) }
 

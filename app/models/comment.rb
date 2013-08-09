@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  
+# modules included:
+  include ModelCaching
   include PeopleGravatar
 
 # scopes:

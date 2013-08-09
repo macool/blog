@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+# modules included:
+  include ModelCaching
   include PeopleGravatar
 
   authenticates_with_sorcery!
