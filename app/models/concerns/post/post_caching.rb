@@ -17,7 +17,6 @@ class Post
       end
     end
     
-    private
     def flush_cached_published
       Rails.logger.debug "[cache]: flushing cache from published posts"
       Rails.cache.delete(["posts", "published"])
