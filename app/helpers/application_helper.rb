@@ -29,4 +29,12 @@ module ApplicationHelper
     raw js
   end
   
+  def buttons_for_approve_comment(comment)
+    if comment.visible
+      link_to "Decline comment", decline_admin_comment_path(comment), :class => "btn btn-mini", remote: true
+    else
+      link_to "Approve comment", approve_admin_comment_path(comment), :class => "btn btn-mini", remote: true
+    end
+  end
+  
 end

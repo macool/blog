@@ -6,6 +6,11 @@
       </span>
     </div>
   <% end %>
+  
+  <% if current_user and current_user.is_admin %>
+    <%= buttons_for_approve_comment comment %>
+  <% end %>
+  
   <div class="person_image">
 		<%= image_tag comment.person_image, :class => "small_profile_image" %>
   </div>

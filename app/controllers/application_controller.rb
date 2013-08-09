@@ -22,5 +22,9 @@ class ApplicationController < ActionController::Base
     ExceptionNotifier::Notifier.exception_notification(request.env,exception).deliver
     render :template => "/errors/500.html.erb", :layout => "application.html.erb", :status => 500
   end
+  
+  def current_user
+    @current_user ||= User.cached_find(session[:user_id]) if session[:user_id]
+  end
 
 end

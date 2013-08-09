@@ -1,5 +1,9 @@
 class Comment < ActiveRecord::Base
+  
+# modules included:
+  include ModelCaching
   include PeopleGravatar
+  include CommentCaching
 
 # scopes:
   scope :approved, -> { where(visible: true).order("id ASC") }
