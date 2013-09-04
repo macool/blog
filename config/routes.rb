@@ -1,4 +1,5 @@
 Blog::Application.routes.draw do
+  default_url_options :host => "blog.macool.me"
 
   get :login, to: "sessions#index", as: :login
   get :logout, to: "sessions#destroy", as: :logout
@@ -7,6 +8,7 @@ Blog::Application.routes.draw do
 
   resources :sessions
   resources :users
+  resources :password_reset
   resources :posts do
     resources :comments
   end

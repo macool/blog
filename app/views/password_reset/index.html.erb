@@ -1,0 +1,21 @@
+<div>
+  <h2><%= t("reset_password", default: "Reset password") %></h2>
+  
+  <p>
+    <%= t("reset_password_instructions", default: "We'll send you your new password to your email address") %>
+  </p>
+  
+  <%= form_tag password_reset_index_path do %>
+  
+    <div class="field">
+      <%= label_tag "email_address", t("email_address", default: "Email Address") %>
+      <%= text_field_tag "email_address", nil, required: true %>
+    </div>
+    
+    <div class="actions">
+      <%= submit_tag t("retrieve_password", default: "Retrieve password"), disable_with: "..." %>
+    </div>
+
+  <% end %>
+  
+</div>

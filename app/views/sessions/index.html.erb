@@ -14,8 +14,13 @@
     </div>
 
     <div class="actions">
-      <%= submit_tag "Log in", disable_with: "logging in.." %>
+      <%= submit_tag t("log_in", default: "Log in"), disable_with: t("loggin_in", default: "logging in..") %>
     </div>
 
   <% end %>
+  
+  <div>
+    <%= link_to t("forgot_password", default: "I forgot my password"), password_reset_index_path %>
+  </div>
+  
 </div>
