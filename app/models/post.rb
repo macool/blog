@@ -42,12 +42,10 @@ class Post < ActiveRecord::Base
     tags.collect(&:name).join(", ")
   end
   def tag_names=(new_tags_names)
-    new_tags = []
-    new_tags_names.split(",").each do |new_tag_name|
+    self.tags = new_tags_names.split(",").collect do |new_tag_name|
       new_tag_name.strip!
-      new_tags << Tag.where(name: new_tag_name).first_or_create
+      Tag.where(name: new_tag_name).first_or_create
     end
-    self.tags = new_tags
   end
 
 end
