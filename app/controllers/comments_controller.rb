@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 private
 
   def find_post
-    @post = @post = Post.published.find_by!(slug: params[:post_id])
+    @post = Post.published.find_by!(slug: params[:post_id])
   end
 
   def comment_params
