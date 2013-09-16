@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
     rescue_from Exception, :with => :render_error
     rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
     rescue_from ActionController::RoutingError, :with => :render_not_found
-    # rescue_from ActionController::UnkownController, :with => :render_not_found
-    # rescue_from ActionController::UnknownAction, :with => :render_not_found
     # Mongoid Not found error:
     # rescue_from Mongoid::Errors::DocumentNotFound, :with => :render_not_found
   end
